@@ -1,0 +1,6 @@
+Souris : 34
+Clavier : 9
+Roulette : 4
+Redimensionnement : 2
+EntreePointeur : 1
+SortiePointeur : 1
