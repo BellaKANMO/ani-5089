@@ -1,0 +1,3 @@
+Facteur : 2.5 en hauteur (1.25 devient 3.125), 4.2 en x, 0.1 en z. Les coordonnees du centre sont multipliees par l'echelle de chaque axe.
+
+Pourquoi : avec Scale * Translate, la matrice d'echelle est appliquee apres la translation, donc elle attrape aussi la translation et multiplie la position du centre, pas seulement la taille du cube. Avec Translate * Scale, l'echelle agit d'abord sur le cube seul, puis la translation le place a la bonne position.

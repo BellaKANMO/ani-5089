@@ -1,0 +1,8 @@
+Observation:
+Avec la face avant de la porte exactement dans le plan du mur du fond (décalage 0), la porte disparaît presque : le mur l'emporte presque partout et des points de la couleur de la porte percent à travers, le long de diagonales. Les fenêtres font de même sur le mur de gauche. Le motif change avec la caméra et scintille quand elle bouge.
+
+Name:
+Z-fighting (conflit de profondeur). Le mur et le panneau sont deux surfaces coplanaires : leur profondeur est la même à l'arrondi près. Le tampon de profondeur a une précision finie (16 bits ici), donc le test de profondeur choisit tantôt le mur, tantôt le panneau, selon de simples erreurs d'arrondi.
+
+Fix:
+J'ai déplacé les trois panneaux de 0,01 m (1 cm) vers l'intérieur de la pièce. Pas moins : le décalage doit dépasser la résolution de profondeur à cette distance (environ 2,4 mm à 4 m en 16 bits), sinon des pixels se disputent encore. Pas plus : les panneaux doivent rester plaqués sur le mur, bien en dessous de leur épaisseur de 2 cm, sans espace ni relief visible sur les bords.

@@ -1,0 +1,22 @@
+Lines:
+
+NkDrawCall3D cube;
+
+cube.mesh = meshCube;
+
+cube.transform =
+    NkMat4f::Translate({0.f, 1.70f, -0.5f});
+
+cube.tint = {1.f, 1.f, 1.f};
+
+cube.aabb =
+{
+    {-0.5f, 1.20f, -1.0f},
+    { 0.5f, 2.20f,  0.0f}
+};
+
+r3d->Submit(cube);
+
+Cause:
+
+J’ai volontairement provoqué l’une des causes citées dans l’énoncé en donnant au cube une boîte englobante (aabb) incorrecte. Le moteur utilise cette boîte pour déterminer si un objet est visible. Lorsque les coordonnées de l’aabb ne correspondent pas à la position réelle du cube dans le monde, l’objet peut être écarté du rendu même si l’appel à Submit est bien exécuté. Le résultat est un écran vide sans message d’erreur. J’ai identifié la cause en comparant la position du cube avec les coordonnées de son aabb puis en corrigeant cette dernière pour qu’elle corresponde à sa position et à sa taille réelles.

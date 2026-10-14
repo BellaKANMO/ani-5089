@@ -1,0 +1,5 @@
+Top:
+y du centre du plateau = 0,725 m. Calcul : la face supérieure est à 0,75 m et le plateau fait 5 cm (0,05 m) d'épaisseur ; sa face inférieure est donc à 0,75 - 0,05 = 0,70 m, et son centre est à mi-épaisseur : 0,75 - 0,05 / 2 = 0,725 m. Dimensions du plateau : 1,20 m (x) × 0,05 m (y) × 0,80 m (z), centré en x = 0,60 et z = 0,70.
+
+Legs:
+Hauteur des pieds = 0,70 m ; y de leur centre = 0,35 m. Calcul : un pied va du sol (y = 0) à la face inférieure du plateau (y = 0,70), pas jusqu'à la face supérieure ; sa hauteur est donc 0,75 - 0,05 - 0 = 0,70 m, et son centre est à 0,70 / 2 = 0,35 m. Position horizontale : centre à 0,60 ± (1,20 / 2 - 0,06 / 2) = 0,60 ± 0,57, soit x = 0,03 et 1,17, et à 0,70 ± (0,80 / 2 - 0,06 / 2) = 0,70 ± 0,37, soit z = 0,33 et 1,07.
