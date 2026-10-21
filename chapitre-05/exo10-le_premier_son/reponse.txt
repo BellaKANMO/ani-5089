@@ -1,0 +1,24 @@
+Lines of my first sound : Mon son tient en 11 lignes de code, de la
+configuration (AudioEngineConfig acfg;) jusqu'à Shutdown inclus, sans compter
+la boucle de rendu qui se trouve entre Play et Shutdown :
+2 de configuration, 1 d'Initialize, 4 d'affichage, 1 de fflush, 1 de
+GenerateTone, 1 de Play et 1 de Shutdown. AudioLoader::Free ajoute une
+douzième ligne, juste après Shutdown.
+
+Latency computed and reported : Un tampon de 256 frames à 48 000 Hz dure
+256 / 48000 = 5,33 ms, et une frame dure 1 / 48000 = 20,83 µs, donc 256 frames
+font bien 5,33 ms. Le moteur rapporte pourtant une latence de 22,00 ms, soit
+4,125 fois plus que ce tampon calculé. L'explication se lit dans le journal :
+le pilote WASAPI a négocié un tampon effectif de 1056 frames, et
+1056 x 20,83 µs = 22,00 ms, exactement la latence rapportée. GetBufferSize
+renvoie 256 (la valeur demandée), alors que le périphérique travaille avec
+1056 frames : 22 ms correspond à 1056 frames, soit 4,125 fois 256.
+
+Why not in the render loop : Le son est consommé par son propre thread, au
+rythme du périphérique audio : un bloc de 1056 frames toutes les 22 ms. La
+boucle de rendu a une autre horloge : environ 8,3 ms par image (60 images en
+0,5 s dans mon journal), et cette durée varie selon la scène. Si le son
+dépendait de la boucle, une image lente laisserait le tampon vide et on
+entendrait des craquements. Appeler Play à chaque image empilerait en plus des
+voix identiques. On lance donc le son une seule fois, au démarrage, et le
+moteur le joue de façon autonome pendant que la boucle tourne.

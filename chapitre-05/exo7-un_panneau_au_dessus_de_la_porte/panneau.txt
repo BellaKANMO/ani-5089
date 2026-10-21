@@ -1,0 +1,8 @@
+atlas : 512 x 512
+image : 72 x 32
+
+My font and its size : Inter, une police intégrée au moteur, ajoutée à l'atlas avec NkFontEmbedded::AddToAtlas à 32 px, puis atlas.Build() (le journal indique 189 glyphes rasterisés, atlas 512x512). L'atlas fait 512 x 512 pixels et l'image du panneau 72 x 32 pixels : largeur égale à la somme des advanceX des six lettres, hauteur égale à ascent - descent. Chaque lettre est lue dans l'atlas par ses coordonnées u0, v0, u1, v1, sans copie pixel à pixel.
+
+At three metres : Le mot « Sortie » est lisible, à l'endroit, en clair sur fond vert foncé, au-dessus de la porte. Il occupe environ 76 x 34 pixels de l'écran, soit à peu près la taille de l'image de 72 x 32 pixels : un pixel de l'image correspond à environ un pixel d'écran, donc le texte paraît net, mais petit. L'ensemble est sombre à cause de l'éclairage.
+
+At fifty centimetres : Le panneau occupe environ 480 x 210 pixels de l'écran, soit six à sept fois plus qu'à 3 m. Le mot reste lisible et à l'endroit, mais les bords des lettres sont doux et légèrement dentées : l'image n'a que 72 x 32 pixels, donc chaque pixel est étiré sur plusieurs pixels d'écran. L'atlas, à 32 px par lettre, limite le détail disponible : s'approcher n'ajoute pas d'information, cela agrandit seulement les pixels existants. Pour un texte lu de près dans un casque, il faudrait convertir la police à une taille plus grande ou produire une image plus grande.

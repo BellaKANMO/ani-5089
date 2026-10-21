@@ -1,0 +1,4 @@
+avant, projet : mur texturé. Log : [2026-10-20 22:27:32.308] [INF] [default] [NkTextureLibrary.cpp:512 in Load] -> [NkTextureLibrary] Texture chargee : murs/photo.jpeg (567x1008 sRGB)
+avant, Build : mur magenta (texture de secours), le mur n'est pas texturé. Log : [2026-10-20 22:28:01.858] [ERR] [default] [NkTextureLibrary.cpp:478 in Load] -> [NkTextureLibrary] Echec chargement texture : murs/photo.jpeg
+apres, projet : mur texturé. LocateResource : C:/Users/bella/Desktop/5/rihen/Build-jenga/test_space/projet/murs/photo.jpeg
+apres, Build : mur texturé. LocateResource : C:/Users/bella/Desktop/5/rihen/Build-jenga/test_space/Build/Bin/Debug-Windows/projet/murs/photo.jpeg
