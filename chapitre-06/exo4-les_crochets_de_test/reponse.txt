@@ -1,0 +1,8 @@
+Pourquoi cette direction :
+La convention de la salle est : l'avant est -Z, le haut est +Y, le repère est direct. Un lacet positif est une rotation autour de +Y. Dans un repère direct, cette rotation amène l'axe -Z vers l'axe -X : un lacet de 90 degrés fait donc regarder vers -X, soit la direction (-1 ; 0 ; 0). J'ai écrit cette valeur à la main comme constante dans le test, par ce raisonnement, sans la calculer avec Regard(). Je n'ai pas vérifié ce sens avec la caméra à l'écran : le test ne vérifie que la cohérence de Regard() avec cette convention.
+
+L'épreuve qui peut dire non :
+Les épreuves lacet 90 et lacet -90 dépendent du signe du lacet. J'ai inversé le signe dans Regard() (sin(yaw) au lieu de -sin(yaw)) : ces deux épreuves ont affiché FAIL (j'obtenais (1 ; 0 ; 0) au lieu de (-1 ; 0 ; 0), et l'inverse pour -90), et le code de sortie est passé de 0 à 1. Les épreuves lacet 0 et tangage 90 sont restées OK, car elles ne dépendent pas de ce signe. Cette épreuve peut donc échouer parce que la valeur attendue vient d'un raisonnement et non de la formule testée.
+
+Ce que la souris ne permettait pas :
+Avec la souris, je ne pouvais pas obtenir un lacet de 90 degrés exact : il aurait fallu bouger la main et lire la valeur. Avec PoserTete, je pose la tête directement, sans fenêtre et sans personne, et je vérifie l'orientation en une seconde, à chaque construction. Le code de sortie dit si tout passe (0) ou non (1), ce qu'un programme de contrôle peut lire sans regarder l'écran. Une erreur de signe, que je n'aurais pas remarquée à la souris, est ici détectée immédiatement.

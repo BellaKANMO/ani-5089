@@ -1,0 +1,10 @@
+Ma sensibilité :
+0,002 radian par unité du capteur (environ 0,115 degré par unité), gardée pour toute la mesure.
+
+Vitesse de dérive : 10,3 deg/s
+
+D'où vient ce nombre :
+J'ai pris deux lignes de derive.txt éloignées, après l'arrêt de la souris : à t = 5,0 s le yaw vaut 42,5 deg, à t = 20,0 s il vaut 196,5 deg. Le calcul est (196,5 - 42,5) / (20,0 - 5,0) = 154,0 / 15,0 = 10,3 deg/s. Je l'ai vérifié avec les images : entre ces deux lignes, frames passe de 381 à 1725, soit 1344 images. Avec raw = 1 et une sensibilité de 0,002 rad, 1344 x 0,002 = 2,688 rad, soit 154,0 deg, le même résultat. Le yaw gagne un peu plus par seconde à la fin (10,0 deg entre 8 s et 9 s, 10,9 deg entre 19 s et 20 s) : le programme tourne plus vite à la fin (87 images dans la seconde de 8 s à 9 s, 95 de 19 s à 20 s), et chaque image ajoute la même quantité.
+
+Pourquoi cela ne s'arrête pas :
+Dans la colonne raw, la valeur reste à 1 sur toutes les lignes de t = 4 s à t = 20 s, alors que je ne touchais plus à la souris. À chaque image, mon programme lit cette valeur et l'ajoute au yaw, sans rien accumuler d'autre. Tant que raw ne repasse pas à 0, le yaw continue donc de croître. Je n'ai vu raw qu'une fois par seconde, donc je ne sais pas s'il valait 1 à chaque image entre deux lignes ; mais le calcul sur les images ci-dessus est cohérent avec cela.

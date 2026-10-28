@@ -1,0 +1,8 @@
+L'ordre que la matrice reproduit :
+La matrice RotationY(45) * RotationX(30), convertie en quaternion, donne le regard (-0,6124 ; 0,5000 ; -0,6124). C'est le même regard que le produit lacet * tangage, à la quatrième décimale. Le produit tangage * lacet donne (-0,7071 ; 0,3536 ; -0,6124) : la composante y diffère de 0,1464. La matrice correspond donc à l'ordre lacet * tangage.
+
+L'ordre d'une tête :
+Une vraie tête tourne d'abord ses yeux vers le haut ou le bas dans son propre repère, puis le corps pivote autour de la verticale. Le lacet est appliqué au monde, le tangage au repère de la tête. Avec lacet * tangage, le tangage agit d'abord sur le vecteur avant, puis le lacet le fait tourner autour de la verticale. Lever les yeux de 30 degrés donne alors une hauteur de regard qui ne dépend pas du lacet : y = 0,5000 pour tous les lacets. Avec tangage * lacet, la hauteur du regard change selon la direction vers laquelle la tête est tournée (0,3536 pour 45 degrés), ce qui n'est pas le geste d'une tête.
+
+Comment je l'ai vérifié :
+J'ai calculé à la main la composante y du regard d'une tête qui lève les yeux de 30 degrés : le lacet tourne autour de la verticale et ne change pas y, donc y = sin 30 degrés = 0,5. J'ai comparé aux trois regards imprimés : lacet * tangage donne 0,5000 (écart -0,0000), la matrice donne 0,5000 (écart 0,0000), tangage * lacet donne 0,3536 (écart -0,1464). Les deux commentaires de NkQuat.h sur le sens du produit se contredisent ; je n'ai pas tranché entre eux, j'ai retenu ce que le calcul a donné. Je n'ai pas lu le code du produit dans NkQuat.cpp.

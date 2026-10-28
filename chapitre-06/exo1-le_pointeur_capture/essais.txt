@@ -1,0 +1,11 @@
+Avec CaptureMouse seul :
+J'ai appelé CaptureMouse(true) juste après la création de la fenêtre, en laissant le curseur visible. Le curseur sort de la fenêtre quand je le pousse au-delà d'un bord, et je peux cliquer sur d'autres applications. Les boutons de la barre de titre répondent. Quand je maintiens le bouton gauche enfoncé dans la fenêtre puis que je sors, rien de particulier ne se passe : le curseur sort comme si je n'avais pas cliqué. Pendant un moment après le lancement, le curseur a affiché le cercle bleu « occupé » ; je n'ai pas trouvé pourquoi.
+
+Ce qui le retient :
+J'ai ajouté ClipMouseToClient(true) après CaptureMouse(true), avec le curseur caché par ShowMouse(false). Je ne voyais pas le curseur, mais je ne pouvais cliquer sur rien en dehors de la fenêtre non plus. Même quand la fenêtre s'est ouverte alors que j'étais dans une autre application, la souris ne pouvait pas sortir d'un rectangle invisible. Appeler ClipMouseToClient(false), CaptureMouse(false) et ShowMouse(true) à la fin du programme m'a rendu un curseur normal et visible sur la machine.
+
+Deux appuis à la suite :
+J'ai appelé ShowMouse(false) deux fois au début et ShowMouse(true) une seule fois à la fin, après ClipMouseToClient(false) et CaptureMouse(false). Après la fermeture du programme, mon curseur était de nouveau visible et normal. Ce n'est pas ce que le commentaire de NkWindow.h me laissait attendre (deux appels à false demandent deux appels à true sous Win32). Je n'ai pas trouvé pourquoi.
+
+Fermer sans relâcher :
+J'ai mis en commentaire ClipMouseToClient(false), CaptureMouse(false) et ShowMouse(true) à la fin du programme, et gardé ShowMouse(false), CaptureMouse(true) et ClipMouseToClient(true) au début. Je l'ai lancé avec MASALLE_EXIT=900. Tant que la fenêtre était ouverte, je ne voyais pas le curseur, je ne pouvais pas cliquer et je ne pouvais rien faire. Après la fermeture du programme, mon ordinateur était de nouveau normal : le curseur était visible et je pouvais m'en servir. Je n'ai pas trouvé pourquoi.

@@ -1,0 +1,11 @@
+Lecture du module :
+La version lue ne s'arrête pas. À 5 s elle vaut 41,5 degrés, à 20 s elle vaut 190,9 degrés : (190,9 - 41,5) / 15 = 9,96 degrés par seconde, alors que la souris est immobile. À 21 s elle vaut 201,1 degrés, plus de trois fois le mouvement réel (60,7 degrés, lus dans la colonne « vidée »).
+
+Accumulé puis vidé :
+La version accumulée puis vidée suit la souris. Elle monte pendant le mouvement (18,7 ; 37,4 ; 57,0 ; 60,7 degrés), puis reste à 60,7 degrés sur toutes les lignes de 5 s à 21 s. Quand la souris s'arrête, le lacet s'arrête. Avec une sensibilité de 0,002 radian (0,1146 degré), 60,7 degrés correspondent à environ 530 unités du capteur.
+
+Accumulé sans vider :
+La version non vidée explose : 5903,2 degrés à 4 s, 10979,6 degrés à 5 s, 95583,3 degrés à 21 s. Après l'arrêt de la souris, elle gagne (95583,3 - 16202,7) / 15 = 5292 degrés par seconde, et son gain par seconde ne baisse jamais. La somme n'est jamais remise à zéro : elle garde tout le mouvement, soit environ 530 unités (60,7 degrés), et le programme la rajoute au lacet à chaque image. 5292 / 60,7 donne environ 87 images par seconde, ce qui est cohérent avec ce que j'avais mesuré ailleurs (85 à 95 images par seconde) ; je n'ai pas compté les images dans ce relevé.
+
+Ce que fait le vidage :
+Vider remet la somme à zéro après l'avoir lue. L'image suivante n'ajoute que les événements arrivés depuis, et s'il n'y en a pas, elle ajoute 0. Chaque mouvement est donc compté une seule fois, et c'est ce qui fait que la colonne « vidée » reste à 60,7 degrés quand la souris s'arrête.
