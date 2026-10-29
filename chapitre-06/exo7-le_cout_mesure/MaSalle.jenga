@@ -1,0 +1,36 @@
+import sys
+
+from Jenga import *
+
+with workspace("MaSalleWks", location="."):
+    configurations(["Debug", "Release"])
+
+    useconfig("Kits/R3D/R3D.jenga")
+
+    with project("MaSalle"):
+        consoleapp()
+        language("C++")
+        cppdialect("C++17")
+        location(".")
+        files(["src/**.cpp"])
+
+        user3d()    
+
+        with filter("config:Release"):
+            optimize("Speed")
+
+
+        with filter("system:Windows"):
+            ldflags(["-static", "-Wl,--allow-multiple-definition"])
+
+        objdir("%{wks.location}/Build/Obj/%{cfg.buildcfg}-%{cfg.system}/%{prj.name}")
+        targetdir("%{wks.location}/Build/Bin/%{cfg.buildcfg}-%{cfg.system}/%{prj.name}")
+
+        _COPIE = ('"' + sys.executable + '" -c "import shutil, sys; '
+                  'shutil.copytree(sys.argv[1], sys.argv[2], dirs_exist_ok=True)" '
+                  '"%{wks.location}/Kits/R3D/Resources/NKRenderer/Shaders" ')
+        postbuild([
+            _COPIE + '"%{wks.location}/Resources/NKRenderer/Shaders"',
+            _COPIE + '"%{wks.location}/Build/Bin/%{cfg.buildcfg}-%{cfg.system}/%{prj.name}'
+                     '/Resources/NKRenderer/Shaders"',
+        ])
