@@ -1,0 +1,8 @@
+without the test
+frame 493 : yaw = -89.900 deg, speed = (0.000, -20.000, 0.000) deg/s, delta.w = 0.999999
+frame 494 : yaw = -90.066 deg, speed = (0.000, 20.000, 0.000) deg/s, delta.w = -0.999999
+frame 495 : yaw = -90.238 deg, speed = (0.000, -20.000, 0.000) deg/s, delta.w = 0.999999
+with the test
+frame 467 : yaw = -89.916 deg, speed = (0.000, -20.001, 0.000) deg/s, delta.w = 0.999999
+frame 468 : yaw = -90.082 deg, speed = (-0.000, -20.000, -0.000) deg/s, delta.w = 0.999999
+frame 469 : yaw = -90.262 deg, speed = (0.000, -20.001, 0.000) deg/s, delta.w = 0.999999

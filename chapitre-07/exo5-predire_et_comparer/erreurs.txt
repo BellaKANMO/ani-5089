@@ -1,0 +1,2 @@
+with prediction : average 1.4279 deg, max 5.7773 deg, over 1000 frames
+without prediction : average 2.1724 deg, max 8.3536 deg, over 1000 frames

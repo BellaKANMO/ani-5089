@@ -1,0 +1,5 @@
+La fréquence de rafraîchissement de mon écran : environ 100 Hz. Avec l'attente de l'écran, l'intervalle médian est de 9,989 ms, et 1000 / 9,989 = 100,1. Les réglages de Windows (affichage avancé) indiquent <valeur> Hz.
+
+Le rythme que je tiens : 72 Hz, et pas davantage. À 72 Hz le budget est de 13,889 ms et même le maximum (11,574 ms) y tient. À 90 Hz le budget est de 11,111 ms : la moyenne (9,875 ms) y tient, mais le maximum (11,574 ms) le dépasse de 0,463 ms, donc je ne tiens pas 90 Hz. À 120 Hz le budget est de 8,333 ms et la moyenne seule (9,875 ms) le dépasse déjà. Sans l'attente de l'écran, la salle prend encore 10,052 ms en moyenne : ce n'est donc pas l'écran qui la limite, c'est la salle elle-même, qui coûte environ 10 ms par image.
+
+Ce que dit le maximum : la moyenne de 9,875 ms passe sous le budget de 90 Hz et cache l'image la plus lente, 11,574 ms, qui le dépasse. Un casque affiche chaque image, pas la moyenne : une image hors budget se voit comme une saccade. Le maximum ne concerne qu'une seule image ; il ne dit pas combien d'images dépassent 11,111 ms.

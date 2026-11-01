@@ -1,0 +1,8 @@
+Les deux écarts types :
+Sans verrou, l'écart type est de 0,523 ms (moyenne 11,950 ms, maximum 17,203 ms). Avec verrou, il est de 0,001 ms (moyenne 16,667 ms, maximum 16,692 ms). Le rythme est donc environ 500 fois plus régulier avec le verrou : aucun intervalle ne s'écarte de plus de 0,03 ms de deux périodes de mon écran (2 x 8,333 ms, écran à 120 Hz). La salle, avec 80 copies, dépasse bien la période de l'écran. Sans verrou, le rythme n'était pourtant déjà pas très irrégulier : 0,523 ms, soit 4 % de la moyenne, et les intervalles n'oscillaient pas entre une et deux périodes. J'ai écarté la mesure à 110 copies, car le moteur a alors refusé des objets au-delà de la limite de 1024.
+
+Ce que coûte le verrou :
+Sans verrou, la salle tourne à 83,7 images par seconde (1000 divisé par 11,950). Avec verrou, elle tourne à 60,0 images par seconde (1000 divisé par 16,667). Le verrou coûte donc 23,7 images par seconde, soit 28 %. Il fait attendre en moyenne 4,7 ms par image, même quand la salle serait prête plus tôt.
+
+La décision du moteur :
+Sur mes mesures, le verrou donne un rythme parfaitement régulier au prix de 28 % d'images. Sur mon écran, le marché n'est pas évident : le rythme libre était déjà stable à 0,5 ms près, et je perds 24 images par seconde. Le commentaire du moteur parle de 39 à 51 images par seconde instables sur un casque, une dispersion bien plus forte que la mienne : ma mesure ne la reproduit pas, donc elle ne confirme ni n'infirme la décision. Ce qu'un écran de bureau ne montre pas : il ne reprojette rien, alors que la raison du moteur est que le lissage du casque se cale sur un rythme stable. Je mesure une régularité, pas un confort : ni le mouvement de la tête, ni la latence, ni la gêne d'une image répétée ne sont mesurés ici.
