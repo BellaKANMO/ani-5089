@@ -1,0 +1,5 @@
+Ce que le banc refuse :
+Il refuse trois choses, et chaque refus renvoie faux sans rien modifier. Emprunter alors qu'une image est déjà sortie : la chaîne garde la première. Rendre sans avoir rien emprunté : l'anneau n'avance pas. Créer une chaîne de 9 images alors que le maximum est 8. Un refus ne plante pas le programme : la méthode renvoie faux et c'est le banc qui décide, ici en affichant la ligne puis en continuant.
+
+Pourquoi un simulateur permissif serait pire :
+Un simulateur qui accepte tout laisse passer des fautes que le vrai moteur ne pardonne pas. Le jour où l'image est noire, on cherche du côté du rendu alors que la faute est dans la comptabilité de la chaîne, et on perd du temps au mauvais endroit. Un simulateur permissif ferait par exemple avancer l'anneau sur un rendu refusé : l'anneau serait décalé d'une image et le programme soumettrait la mauvaise, sans qu'aucun message ne le signale. Le banc, lui, montre chaque faute à la ligne où elle est commise, sans fenêtre ni carte graphique, avant d'écrire la moindre ligne de rendu.

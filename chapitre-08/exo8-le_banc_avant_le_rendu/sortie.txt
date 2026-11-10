@@ -1,0 +1,16 @@
+chaine de 3 images creee
+tour 1 : emprunte 0
+tour 1 : rend 0
+tour 2 : emprunte 1
+tour 2 : rend 1
+tour 3 : emprunte 2
+tour 3 : rend 2
+tour 4 : emprunte 0
+tour 4 : rend 0
+tour 5 : emprunte 1
+tour 5 : rend 1
+tour 6 : emprunte 2
+tour 6 : rend 2
+double emprunt : refuse
+rendu sans emprunt : refuse
+chaine de 9 images : refusee, le maximum est 8
