@@ -1,0 +1,8 @@
+À quelle image il s'est figé :
+Résultat non obtenu : je ne peux pas répondre. Je n'ai observé aucun figement sur plus de 7000 images, puis le programme s'est arrêté avec une erreur d'accès mémoire (code -1073741819) avant la première image. Je n'ai donc pas d'image à indiquer.
+
+Ce que la pile montrait :
+Résultat non obtenu : je ne peux pas répondre. Faute de processus figé, je n'ai pas pu prendre la pile du fil principal en attente, et je n'écris pas de pile inventée.
+
+Pourquoi rien n'est journalisé :
+Résultat non obtenu : je ne peux pas répondre à partir d'une observation, puisque le figement n'a pas eu lieu chez moi. J'ai signalé ce problème dans un message à l'enseignant et je n'ai pas reçu de réponse à ma question. Tant qu'il n'est pas résolu, je ne donne pas ici d'explication que je n'ai pas pu vérifier.

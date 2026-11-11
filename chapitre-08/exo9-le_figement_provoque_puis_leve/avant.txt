@@ -1,0 +1,5 @@
+Résultat non obtenu : je ne peux pas fournir cet élément.
+
+L'expérience ne s'est pas déroulée comme l'énoncé l'annonce. Avec une cible plus petite que la fenêtre et sans le second appel, je n'ai observé aucun figement sur plus de 7000 images. Ensuite, le programme s'est arrêté avec une erreur d'accès mémoire (code -1073741819) dès le démarrage, avant la première image, avec toutes les configurations essayées, y compris celles qui fonctionnaient auparavant.
+
+J'ai signalé ce problème dans un message à l'enseignant et je n'ai pas reçu de réponse à ma question. Je n'écris pas de données inventées : tant que ce problème n'est pas résolu, je ne peux pas donner ici de résultat qui dépende de ce figement.

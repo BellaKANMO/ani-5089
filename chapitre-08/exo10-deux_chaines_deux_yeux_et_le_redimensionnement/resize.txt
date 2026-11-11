@@ -1,0 +1,6 @@
+DETRUIT chaine gauche
+DETRUIT chaine droite
+RECREE chaine gauche
+RECREE chaine droite
+REENREGISTRE images chaine gauche
+REENREGISTRE images chaine droite
