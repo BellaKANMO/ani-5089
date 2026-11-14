@@ -201,6 +201,7 @@ int nkmain(const NkEntryState &state) {
                 (double)kPiece, (double)kPiece, (double)kPlafond);
 
     const uint64 imageDeSortie = EnvU64("MASALLE_EXIT", 0);
+    std::FILE *sortie = std::fopen(EnvU64("MASALLE_FORCE", 0) == 1 ? "apres.txt" : "avant.txt", "w");
     uint64 image = 0;
     bool tourne = true;
 
@@ -267,6 +268,10 @@ int nkmain(const NkEntryState &state) {
 
         std::printf("image : %llu, etat : dessinee\n", (unsigned long long)image);
         std::fflush(stdout);
+        if (sortie != nullptr) {
+            std::fprintf(sortie, "image : %llu, etat : dessinee\n", (unsigned long long)image);
+            std::fflush(sortie);
+        }
 
         if (imageDeSortie != 0 && image >= imageDeSortie) {
             tourne = false;
@@ -274,6 +279,10 @@ int nkmain(const NkEntryState &state) {
     }
 
     std::printf("[MaSalle] %llu images\n", (unsigned long long)image);
+
+    if (sortie != nullptr) {
+        std::fclose(sortie);
+    }
 
     NkRenderer::Destroy(renderer);
     NkRenderer::Destroy(rEcran);

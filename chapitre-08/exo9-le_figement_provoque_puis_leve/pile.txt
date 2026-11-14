@@ -1,5 +1,37 @@
-Résultat non obtenu : je ne peux pas fournir cet élément.
+Pile du fil principal (thread #1), prise avec lldb pendant que le programme tournait normalement : il n'y avait aucun figement.
 
-L'expérience ne s'est pas déroulée comme l'énoncé l'annonce. Avec une cible plus petite que la fenêtre et sans le second appel, je n'ai observé aucun figement sur plus de 7000 images. Ensuite, le programme s'est arrêté avec une erreur d'accès mémoire (code -1073741819) dès le démarrage, avant la première image, avec toutes les configurations essayées, y compris celles qui fonctionnaient auparavant.
-
-J'ai signalé ce problème dans un message à l'enseignant et je n'ai pas reçu de réponse à ma question. Je n'écris pas de données inventées : tant que ce problème n'est pas résolu, je ne peux pas donner ici de résultat qui dépende de ce figement.
+  thread #1
+       frame #0: 0x00007fffa790dc7a nvwgf2umx.dll`
+       frame #1: 0x00007fffa790e556 nvwgf2umx.dll`
+       frame #2: 0x00007fffa8185254 nvwgf2umx.dll`NVDEV_Thunk + 354020
+       frame #3: 0x00007fffa793c84c nvwgf2umx.dll`NVAPI_DirectMethods + 95708
+       frame #4: 0x00007fffa7a16aec nvwgf2umx.dll`NVAPI_DirectMethods + 989308
+       frame #5: 0x00007fffa7f1a936 nvwgf2umx.dll`OpenAdapter10 + 847958
+       frame #6: 0x00007fffa7fcc327 nvwgf2umx.dll`OpenAdapter10 + 1575495
+       frame #7: 0x00007fffa7fc7795 nvwgf2umx.dll`OpenAdapter10 + 1556149
+       frame #8: 0x00007fffa7ff7572 nvwgf2umx.dll`OpenAdapter12 + 20258
+       frame #9: 0x00007fffa7ffcf6f nvwgf2umx.dll`OpenAdapter12 + 43295
+       frame #10: 0x00007fffa7f254c0 nvwgf2umx.dll`OpenAdapter10 + 891872
+       frame #11: 0x00007fffcad2ad41 D3D12Core.dll`D3D12GetInterface + 159585
+       frame #12: 0x00007fffcad00153 D3D12Core.dll`
+       frame #13: 0x00007fffcacd17e4 D3D12Core.dll`
+       frame #14: 0x00007fffcad0bb08 D3D12Core.dll`D3D12GetInterface + 32040
+       frame #15: 0x00007fffcace11eb D3D12Core.dll`
+       frame #16: 0x00007ff80aed1707 D3D12.dll`
+       frame #17: 0x00007fffcacffe6b D3D12Core.dll`
+       frame #18: 0x00007fffcacff85e D3D12Core.dll`
+       frame #19: 0x00007fffb4a8d8d8 nvoglv64.dll`vk_optimusGetInstanceProcAddr + 282744
+       frame #20: 0x00007fffb4a806fd nvoglv64.dll`vk_optimusGetInstanceProcAddr + 229021
+       frame #21: 0x00007fffb4a8b3fb nvoglv64.dll`vk_optimusGetInstanceProcAddr + 273307
+       frame #22: 0x00007fffb4a7f491 nvoglv64.dll`vk_optimusGetInstanceProcAddr + 224305
+       frame #23: 0x00007fffcf157e32 vulkan-1.dll`vkResetEvent + 356002
+       frame #24: 0x00007fffcf159915 vulkan-1.dll`vkResetEvent + 362885
+       frame #25: 0x00007ff6e79c291f MaSalle.exe`nkentseu::NkVulkanDevice::CreateSwapchain(unsigned int, unsigned int) + 863
+       frame #26: 0x00007ff6e79ce271 MaSalle.exe`nkentseu::NkVulkanDevice::EndFrame(nkentseu::NkFrameContext&) + 241
+       frame #27: 0x00007ff6e787aa8c MaSalle.exe`nkentseu::renderer::NkRendererImpl::EndFrame() + 92
+       frame #28: 0x00007ff6e7862db7 MaSalle.exe`nkmain(state=<unavailable>) at main.cpp:264:21
+       frame #29: 0x00007ff6e7861676 MaSalle.exe`WinMain(hInstance=0x00007ff6e7860000, hPrevInstance=0x0000000000000000, lpCmdLine="", nCmdShow=10) at NkWindowsDesktop.h:84:15
+       frame #30: 0x00007ff6e79084f5 MaSalle.exe`main(argc=<unavailable>, argv=<unavailable>, envp=<unavailable>) at crtexewin.c:62:10
+       frame #31: 0x00007ff6e786110d MaSalle.exe`__tmainCRTStartup at crtexe.c:271:11
+       frame #32: 0x00007ff85ca1dda7 kernel32.dll`BaseThreadInitThunk + 23
+       frame #33: 0x00007ff85e1fee4c ntdll.dll`RtlUserThreadStart + 44
