@@ -1,0 +1,12 @@
+image | on rend | couches soumises | index d'image
+    1 |       1 |                1 |             0
+    2 |       1 |                1 |             1
+    3 |       0 |                0 |             -
+    4 |       0 |                0 |             -
+    5 |       1 |                1 |             2
+    6 |       1 |                1 |             0
+verification : OK (0 ecart)
+fins de trame : 6 sur 6, 0 debut sur une trame ouverte
+dessin sans couche : refuse, anneau inchange : oui
+version fautive, l'anneau avance a chaque trame : 2 ecarts detectes
+version fautive, fin de trame dans le if : 4 fins sur 6, 2 debuts sur une trame ouverte
